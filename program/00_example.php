@@ -1,7 +1,7 @@
 <?php
 echo_s('example','box');
 
-display('image.png');
+display(CLI_FRAMEWORK_DIR . '/image.png');
 
 function progress_bar_example(){
     $progress_iterations = 100;
@@ -15,7 +15,3 @@ function progress_bar_example(){
 }
 
 progress_bar_example();
-
-
-
-
