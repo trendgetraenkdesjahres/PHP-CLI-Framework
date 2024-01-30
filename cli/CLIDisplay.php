@@ -7,10 +7,10 @@ class CLIDisplay
     protected array $output_info;
 
     public function __construct(string $image_file, int $width = 0)
-    {   
+    {
         if(!$this->create_image($image_file))
         {
-            throw new Exception( $image_file." is not a file" );  
+            throw new Exception( $image_file." is not a file" );
         }
 
         //get window width if no specefic width is delivered
@@ -85,14 +85,14 @@ class CLIDisplay
                 $g = ($color >> 8) & 0xFF;
                 $b = $color  & 0xFF;
                 $a = abs(($a / 127) - 1 );
-                
-                
+
+
                 $output .= $this->pixel($this->get_closest_color($r, $g, $b));
                 if($w + $pixel_width + 1> $this->image_info['width'])
                 {
                     $output .= "\n";
                 }
-                
+
             }
         }
 
@@ -119,7 +119,7 @@ class CLIDisplay
                 $closest_color['difference'] = $tmp;
                 $closest_color['name'] = $name;
             }
-            
+
         }
         return $closest_color['name'];
     }
@@ -130,7 +130,7 @@ class CLIDisplay
  *
  * @param   string  $image  path to image
  *
- * @return  NULL         
+ * @return  NULL
  */
 function display(string $image)
 {
