@@ -44,7 +44,7 @@ class CLIOptions
             {
                 return;
             }
-            
+
             // short options
             if(strlen($option_key) === 1 )
             {
@@ -101,7 +101,9 @@ init_cli_options();
 function init_cli_options(){
     global $cli;
     global $config;
-    $cli['options'] = new CLIOptions($config['cli_flags']);
+    if(isset($config['cli_flags'])) {
+        $cli['options'] = new CLIOptions($config['cli_flags']);
+    }
 }
 
 function get_option(string $key)
