@@ -1,17 +1,9 @@
 <?php
-echo_s('example','box');
-
-display(CLI_FRAMEWORK_DIR . '/image.png');
-
-function progress_bar_example(){
-    $progress_iterations = 100;
-    init_progress($progress_iterations,__FUNCTION__);
-    for($i = 0; $i < $progress_iterations; $i++)
-    {
-        $wait = rand(0,10)/10;
-        sleep($wait);
-        update_progress();
-    }
+foreach(file("README.md") as $line ) {
+    $line = trim($line);
+    if (str_starts_with($line, "#")) {
+            echo_s(trim($line, "#"),'box');
+            continue;
+        }
+    echo_s($line);
 }
-
-progress_bar_example();

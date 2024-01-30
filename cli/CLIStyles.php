@@ -16,13 +16,12 @@ class CLIStyles{
         {
             return;
         }
-        $to_eval = "return \$this->string_in_".$style."('".$str."');";
-        return eval($to_eval);
+        return call_user_func(get_class()."::string_in_$style", $str);
     }
 
     protected function string_in_robot(string $str)
     {
-        $output = "🤖 ".$str."\n"; 
+        $output = "🤖 ".$str."\n";
         return $output;
     }
 
@@ -30,18 +29,18 @@ class CLIStyles{
     {
         $column_width = 60;
 
-        $output = "# ".$str; 
+        $output = "# ".$str;
         $n_of_spaces = $column_width - strlen($output);
         for($i = $n_of_spaces ;  $i >= 0; $i-- )
         {
-            $output .= ' '; 
+            $output .= ' ';
         }
         return $output;
     }
 
     protected function string_in_basic(string $str)
     {
-        $output = "  ".$str."\n"; 
+        $output = "  ".$str."\n";
         return $output;
     }
 
@@ -59,7 +58,7 @@ class CLIStyles{
                 $maxlen = strlen($line);
             }
         }
-        
+
 
         // top
         $output .= '┌';
@@ -93,7 +92,7 @@ class CLIStyles{
 
     }
 
-    
+
 }
 
 init_cli_styles();

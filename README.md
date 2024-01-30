@@ -4,7 +4,8 @@ framework to create command line tools
 
 ### how to use?
 - add this repo as submodule to your project folder
-- symlink `program/`, `config.ini` and `start.php` into your project folder
+- copy `program/`, `config.ini`
+- symlink `start.php` into your project folder
 - add your code as .php-file into the "program" folder. the folder will be executed alphabetically.
 - run start.php
 
